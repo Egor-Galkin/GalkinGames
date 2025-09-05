@@ -1,0 +1,240 @@
+/* Базовые настройки страницы */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #222;
+  color: white;
+  user-select: none;
+  text-align: center;
+}
+
+/* Контейнер приложения */
+#app {
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+/* Стили для кнопок */
+button, #start-btn, #remember-btn {
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 15px 0;
+  transition: background-color 0.3s ease;
+}
+button:hover, #start-btn:hover, #remember-btn:hover {
+  background-color: #357abd;
+}
+
+/* Оверлей */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(20, 20, 20, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Обратный отсчет */
+#countdown-number {
+  font-size: 120px;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Основные стили игрового экрана */
+
+/* Верхнее меню */
+header {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Основное поле */
+.field {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
+.field > div {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Кнопка "Запомнил" */
+#remember-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#remember-btn:hover {
+  background-color: #357abd;
+}
+
+/* Сообщение */
+#message {
+  user-select: none;
+}
+
+/* Контейнер выбора */
+.selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.selection.hidden {
+  display: none;
+}
+
+/* Фигуры */
+.figure {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin: 0px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+  user-select: none;
+  display: inline-block;
+  position: relative;
+}
+
+/* Выделение выбранных фигур */
+.figure.selected::after {
+  content: "✔️";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  color: limegreen;
+  pointer-events: none;
+}
+
+/* Особое выделение для треугольника */
+.figure.triangle.selected::after {
+  bottom: -50px;
+  font-size: 40px;
+  color: limegreen;
+}
+
+/* Типы фигур и их цвета */
+.figure.square {
+  background-color: #FF7F00;
+  border-radius: 6px;
+}
+
+.figure.circle {
+  background-color: #FFFF00;
+  border-radius: 50%;
+}
+
+.figure.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid #FF0000;
+  background: none !important;
+  border-radius: 0;
+}
+
+.figure.pentagon {
+  background-color: #00FF00;
+  clip-path: polygon(50% 0%, 90% 35%, 72% 96%, 28% 96%, 10% 35%);
+}
+
+.figure.hexagon {
+  background-color: #0000FF;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.figure.star {
+  background-color: #00ffff;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  border-radius: 0;
+}
+
+.figure.diamond {
+  background-color: #8B00FF;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  border-radius: 0;
+}
+
+/* Стили для обучения */
+.tutorial-step {
+  margin: 15px 0 30px 0;
+  text-align: center;
+}
+
+/* Стрелка у кнопки Запомнил */
+.arrow-down {
+  margin: 10px auto 0;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #fff;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(10px);}
+}
+
+/* Пунктирный контур для пропавшей фигуры */
+.figure.missing {
+  width: 60px;
+  height: 60px;
+  background: none !important;
+  border: 2px dashed #fff;
+  border-radius: 6px;
+  user-select: none;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  margin: 0px;
+  cursor: default;
+  transition: none;
+}
+
+/* Выделение правильного варианта */
+.figure.correct {
+  box-shadow: 0 0 10px 4px #fff;
+}

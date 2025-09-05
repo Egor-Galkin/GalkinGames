@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Найди число</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Обучающий экран -->
+        <section id="tutorial" class="overlay">
+            <h2>Обучение</h2>
+            <h3 id="tutorial-target-number">Найдите число: 5</h3>
+            <div class="tutorial-grid">
+                <div class="cell tutorial-cell" style="background-color: #00bfff;">3</div>
+                <div class="cell tutorial-cell" style="background-color: #ff69b4;">8</div>
+                <div class="cell tutorial-cell correct" style="background-color: #ff8c00;">5</div>
+                <div class="cell tutorial-cell" style="background-color: #32cd32;">1</div>
+                <div class="cell tutorial-cell" style="background-color: #8a2be2;">9</div>
+                <div class="cell tutorial-cell" style="background-color: #222;">6</div>
+            </div>
+            <p>Найдите число, указанное вверху таблицы, и кликните на него.</p>
+            <button id="start-btn">Начать игру</button>
+            <button id="back-btn">Вернуться</button>
+        </section>
+
+        <!-- Обратный отсчет -->
+        <section id="countdown" class="overlay hidden">
+            <h2>Игра начнется через:</h2>
+            <div id="countdown-number">3</div>
+        </section>
+
+        <!-- Основной экран -->
+        <section id="game" class="hidden">
+            <header>
+                <div id="timer">Время: 60</div>
+                <div id="level">Уровень: 1 - 9</div>
+                <div id="score">Очки: 0</div>
+                <div id="bonus">Бонус: x1 - x5</div>
+            </header>
+            <h1 id="target-number">Найдите число: </h1>
+            <div id="grid" class="grid"></div>
+        </section>
+
+        <!-- Экран окончания игры -->
+        <section id="game-over" class="overlay hidden">
+            <h2>Игра окончена!</h2>
+            <div id="result-icon" style="font-size: 60px; color: #4CAF50; margin-bottom: 10px;">✔️</div>
+            <p id="final-score">Ваш счет: 0</p>
+            <p id="correct-stat">Верные ответы: 0 из 0</p>
+            <button id="retry-btn">Попробовать ещё раз</button>
+            <button id="exit-btn">Вернуться</button>
+        </section>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

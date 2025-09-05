@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Запомни фигуры</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Обучение -->
+    <section id="tutorial" class="overlay">
+      <h2>Обучение</h2>
+      <div id="tutorial-container">
+        <div class="tutorial-step">
+          <h3>Запомните фигуры в ряду</h3>
+          <div class="field">
+            <div class="figure triangle"></div>
+            <div class="figure square"></div>
+            <div class="figure circle"></div>
+          </div>
+          <div class="arrow-down"></div>
+        </div>
+        <div class="tutorial-step">
+          <div class="field">
+            <div class="figure triangle"></div>
+            <div class="figure missing"></div>
+            <div class="figure circle"></div>
+          </div>
+          <p>Выберите пропавшую фигуру из списка:</p>
+          <div class="selection">
+            <div class="figure square correct"></div>
+            <div class="figure pentagon"></div>
+            <div class="figure hexagon"></div>
+          </div>
+        </div>
+      </div>
+      <button id="start-btn">Начать игру</button>
+      <button id="back-btn">Вернуться</button>
+    </section>
+
+    <!-- Обратный отсчет -->
+    <section id="countdown" class="overlay hidden">
+      <h2>Игра начнется через:</h2>
+      <div id="countdown-number">3</div>
+    </section>
+
+    <!-- Игровой экран -->
+    <section id="game" class="hidden">
+      <header>
+        <div id="timer">Время: 60</div>
+        <div id="level">Уровень: 1 - 10</div>
+        <div id="score">Очки: 0</div>
+        <div id="bonus">Бонус: x1 - x10</div>
+        <div id="chances">Шансы: 3</div>
+      </header>
+
+      <h1 id="instruction">Запомните фигуры</h1>
+      <div id="memory-field" class="field"></div>
+      <button id="remember-btn">Запомнил</button>
+
+      <div id="message" style="font-size: 18px; min-height: 24px; margin-top: 10px; color: #f1c40f;"></div>
+      <div id="selection" class="selection hidden" aria-label="Варианты выбора пропавших фигур"></div>
+    </section>
+
+    <!-- Экран окончания игры -->
+    <section id="game-over" class="overlay hidden">
+      <h2>Игра окончена!</h2>
+      <div id="result-icon" style="font-size: 60px; color: #4CAF50; margin-bottom: 10px;">✔️</div>
+      <p id="final-score">Ваш счет: 0</p>
+      <button id="retry-btn">Попробовать ещё раз</button>
+      <button id="exit-btn">Вернуться</button>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
